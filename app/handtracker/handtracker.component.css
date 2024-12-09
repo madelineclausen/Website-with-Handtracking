@@ -1,0 +1,87 @@
+
+.videobox{
+    border: 3px solid #DD2D4A;
+    border-color: #DD2D4A;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+}
+
+.parent
+{
+    align-items: center;
+}
+
+button
+{
+    display: inline-block;
+    background-color: #880D1E;
+    color: #F49CBB;
+    margin: 10px;
+}
+
+body
+{
+    background-color: #cbeef3;
+
+}
+
+h1
+{
+    text-align: center;
+    color: #F49CBB;
+}
+h2
+{
+    text-align: center;
+    color: #880D1E;
+}
+h4
+{
+    font-size: 16pt;
+}
+
+.parent
+{
+    align-content: center;
+    margin-left: 15%;
+
+}
+
+.child 
+{
+    margin: 5%;
+    display: inline-block;
+    color: #DD2D4A;
+}
+
+.q
+{
+    margin-bottom: 12%;
+}
+
+.card-parent
+{
+    margin-left: 35%;
+    align-content: center;
+}
+
+#question
+{
+    background-color: #880D1E;
+    color: #CBEEF3;
+    margin-bottom: 5%;
+}
+
+.card 
+{
+    display: inline-block;  
+    background-color: #F49CBB;
+    width:fit-content;
+
+}
+
+.results
+{
+    color: black;
+}

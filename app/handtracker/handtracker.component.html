@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AtAlternativeInteractionSolution</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h1>Welcome to Our Touchless Quiz!</h1>
+    <h2>Use hand motions to select your answer!</h2>
+    <div class="parent">
+    <div class="child"><div id="videoContainer"></div><app-root></app-root></div>
+
+    <video id="htvideo" #htvideo name="htvideo" class="videobox" autoplay="autoplay"></video>
+    <div class="parent">
+    <button id="start" (click)="startDetection()">Start</button>
+    <button id="stop" (click)="stopDetection()">Stop</button>
+    </div>
+
+    <div class="child">
+        <h4>Each question will have 4 answer to choose from. Here's how it works:</h4>
+        <ul>
+        <li>To select option #1 (upper-left), place <b>one <em>open</em> hand</b> in front of the camera.</li>
+        <li>To select option #2 (upper-right), place <b>one <em>closed</em> hand</b> in front of the camera.</li>
+        <li>To select option #3 (lower-left), place <b>two <em>open</em> hands</b> in front of the camera.</li>
+        <li>To select option #4 (lower-right), place <b>two <em>closed</em> hands</b> in front of the camera.</li>
+        <li>To move onto the next question, <b><em>pinch</em> one hand</b>.</li>
+        <li>To submit results, <b><em>close</em> one hand and use the other to <em>point</em></b> (upward works best)</li>
+        <li>To restart quiz, <b><em>open</em> one hand and use the other to <em>pinch</em></b></li>
+        </ul>
+        <h4>Ready? Press the start button!</h4>
+    </div>
+    </div>
+
+
+    <div class="q" *ngIf="breakfast">
+    <div class="card-parent">
+        <div class="card" id="question">
+        <div class="card-body">
+            <h5 class="card-title">What kind of food would you prefer for breakfast?</h5>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Eggs</h5>
+            <h6 class="card-subtitle mb-2 text-muted">You need your protein!</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Hashbrowns</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Simple, we like it.</h6>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Chicken and waffles</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Balancing sweet and savory.</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Pancakes</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Sweet tooth all the way!</h6>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class="q" *ngIf="lunch">
+    <div class="card-parent">
+        <div class="card" id="question">
+        <div class="card-body">
+            <h5 class="card-title">What kind of food would you prefer for lunch?</h5>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Chipotle</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Always a solid choice.</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Ham and Cheese Sandwich</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Easy to make!</h6>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Pink Shrimp</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Looks like we're dining out!</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Pastrami Sandwich</h5>
+            <h6 class="card-subtitle mb-2 text-muted">It has the meat.</h6>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class="q" *ngIf="dinner">
+    <div class="card-parent">
+        <div class="card" id="question">
+        <div class="card-body">
+            <h5 class="card-title">What kind of food would you prefer for dinner?</h5>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Pasta</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Ciao bella.</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Stone crab</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Interesting pick</h6>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Pizza</h5>
+            <h6 class="card-subtitle mb-2 text-muted">With or without pineapple?</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Steak and mashed potatoes</h5>
+            <h6 class="card-subtitle mb-2 text-muted">In this economy?</h6>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="q" *ngIf="drink">
+    <div class="card-parent">
+        <div class="card" id="question">
+        <div class="card-body">
+            <h5 class="card-title">What kind of drink do you prefer?</h5>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Coffee</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Obviously</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Pepsi</h5>
+            <h6 class="card-subtitle mb-2 text-muted">An American classic</h6>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Squirt</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Never heard of it? Exactly.</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Manhattan</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Concrete jungle where dreams are made of.</h6>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="q" *ngIf="dessert">
+    <div class="card-parent">
+        <div class="card" id="question">
+        <div class="card-body">
+            <h5 class="card-title">What kind of dessert do you like?</h5>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Donuts</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Another classic.</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Huckleberry Ice Cream</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Yes, like Huckleberry Finn.</h6>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Key Lime Pie</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Ooo tangy.</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Cheesecake</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Fancy.</h6>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class="q" *ngIf="snack">
+    <div class="card-parent">
+        <div class="card" id="question">
+        <div class="card-body">
+            <h5 class="card-title">What kinda snacks do you like to binge?</h5>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Takis</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Nothing will stand between you and your Takis.</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Wheat Thins</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Boring, but whatever.</h6>
+        </div>
+        </div>
+    </div>
+    <div class="card-parent">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Bagels</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Kinda filling for a snack, no?</h6>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Plantain Chips</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Unique choice.</h6>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="results" *ngIf="results">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">Your State: {{answer}}</h1>
+              <p class="lead">DESCRIPTION HERE</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
